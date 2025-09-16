@@ -7,5 +7,9 @@ public class Expansion : MonoBehaviour
      * Startup menu for water quiz
      * Choose number of questions to be made
      * Choose between multiple choice or input 
+     * enter question name
+     * enter answer 
+     * preset questions
+     * leaderboard
     */
 }
