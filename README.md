@@ -6,6 +6,9 @@ Multiple Choice Questions
 
 Inputted Answer Questions
 
+**Planned Expansion:**
+Adding Custom Questions
+
 **Water Supply Management:**
 
 Control the flow of water between the reservoir, the water supply tank, and a house
