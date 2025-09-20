@@ -23,6 +23,7 @@ public class WaterQuiz : MonoBehaviour
     public TextMeshProUGUI Litres;
     public int litre;
 
+    //If the player clicks the Shower option, unselect the Bath
     public void Button1ShowerClicked()
     {
         ShowerButton.color = Color.grey;
@@ -32,6 +33,7 @@ public class WaterQuiz : MonoBehaviour
         BathSelected = false;
     }
 
+    //If the player clicks the Bath option, unselect the Shower
     public void Button2BathClicked()
     {
         ShowerButton.color = Color.white;
@@ -41,47 +43,51 @@ public class WaterQuiz : MonoBehaviour
         BathSelected = true;
     }
 
+    //Add 2 Litres
     public void PlusButtonPressed()
     {
-        if (litre < 10)
+        if (litre < 10)//Capped at 10 to prevent players from choosing two high, helps guide player to what the answer might be 
         {
             litre = litre + 2;
             Litres.text = litre.ToString() + " litres";
         }
     }
 
+    //Minus 2 Litres
     public void MinusButtonPressed()
     {
-        if(litre > 0)
+        if(litre > 0)//Capped at 0 
         {
             litre = litre - 2;
             Litres.text = litre.ToString() + " litres";
         }
     }
 
+    //When player submits the answer for question 1
     public void EnterButton1()
     {
-        if(litre == 6)
+        if(litre == 6)//correct answer was 6 litres
         {
             Score = Score + 1;
             Score1.text = Score.ToString();
             Score2.text = Score.ToString();
         }
 
-        Question1.SetActive(false);
-        Question2.SetActive(true);
+        Question1.SetActive(false); //Hide Q1
+        Question2.SetActive(true); //Open Q2
     }
 
+    //When player submits the answer for question 2
     public void EnterButton2()
     {
-        if(BathSelected)
+        if(BathSelected)//Correct answer was bath
         {
             Score = Score + 1;
             Score1.text = Score.ToString();
             Score2.text = Score.ToString();
         }
 
-        Question2.SetActive(false);
-        Final.SetActive(true);
+        Question2.SetActive(false);//Hide Q1
+        Final.SetActive(true);//Show win screen
     }
 }

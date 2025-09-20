@@ -42,19 +42,19 @@ public class WaterSupply : MonoBehaviour
 
     public int rotatevalue = 15;
 
-    void Start()
+    void Start() //When the minigame starts
     {
-        StartCoroutine(ResevoirDelay());
-        RandomWindow();
-        StartCoroutine(Countdown());
+        StartCoroutine(ResevoirDelay());//Start resevoir increasing
+        RandomWindow(); //Choose random window
+        StartCoroutine(Countdown());//Track player score
     }
 
-    private void Update()
+    private void Update()//Every frame
     {
-        WTSize = WaterTank.transform.localScale;
-        RSize = Resevoir.transform.localScale;
+        WTSize = WaterTank.transform.localScale;//Update WT Value
+        RSize = Resevoir.transform.localScale;//Update RT Value
 
-        if (WTSize.y < -0 || RSize.y < 0)
+        if (WTSize.y < -0 || RSize.y < 0) //if the water tank or resevoir hits 0, end the game
         {
             GameOVER.SetActive(true);
             GameOverTime = true;
@@ -62,14 +62,14 @@ public class WaterSupply : MonoBehaviour
         }
     }
 
-    public void RandomWindow()
+    public void RandomWindow() //Chooses which house window will activate and use water
     {
         Window1Deactivate = false;
         Window2Deactivate = false;
         Window3Deactivate = false;
         Window4Deactivate = false;
-        random = Random.Range(0, 4);
-        switch (random)
+        random = Random.Range(0, 4); //choose 1 of the 4 
+        switch (random) 
         {
             case 1:
                 Window1Activate();
@@ -90,6 +90,8 @@ public class WaterSupply : MonoBehaviour
         StartCoroutine(ChooseWindow());
     }
 
+
+    //Each window drains the tank by different levels
     public void Window1Activate()
     {
         if (Window1Deactivate == false)
@@ -131,6 +133,7 @@ public class WaterSupply : MonoBehaviour
         }
     }
 
+    //Each window drains the tank by different levels
     public void WaterTankDrain1()
     {
         WTSize = WaterTank.transform.localScale;
@@ -183,7 +186,9 @@ public class WaterSupply : MonoBehaviour
 
         StartCoroutine(WaterTankDelay4());
     }
-    public void WaterResevoirPressed()
+
+
+    public void WaterResevoirPressed() //When the Gear is pressed, lower value of resevoir and increase water tank
     {
         RSize = Resevoir.transform.localScale;
         shrink2 = RSize.y;
@@ -208,6 +213,7 @@ public class WaterSupply : MonoBehaviour
         Button.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, rotatevalue);
     }
 
+    //Slowly increase the water resevoir
     public void WaterResevoirIncrease()
     {
         RSize = Resevoir.transform.localScale;
@@ -224,12 +230,13 @@ public class WaterSupply : MonoBehaviour
 
     }
 
-    IEnumerator ResevoirDelay()
+    IEnumerator ResevoirDelay()//Every second, increase the water resevoir 
     {
         yield return new WaitForSeconds(1);
         WaterResevoirIncrease();
     }
 
+    //Each window drains the tank by different levels
     IEnumerator WaterTankDelay1()
     {
         yield return new WaitForSeconds(1);
@@ -266,6 +273,7 @@ public class WaterSupply : MonoBehaviour
         }
     }
 
+    //Window delays keep the window 'on' for 5 seconds and then they get deactivated
     IEnumerator Window1Delay()
     {
         yield return new WaitForSeconds(5);
@@ -291,13 +299,13 @@ public class WaterSupply : MonoBehaviour
         Window4.color = Color.grey;
     }
 
-    IEnumerator ChooseWindow()
+    IEnumerator ChooseWindow() //short period of time before a new window is activated
     {
-        yield return new WaitForSeconds(Random.Range(6, 10));
+        yield return new WaitForSeconds(Random.Range(6, 10)); //6-10 seconds before new window, gives player either 1 or 4 seond break between windows
         RandomWindow();
     }
 
-    IEnumerator Countdown()
+    IEnumerator Countdown() //Track players score, 1 second = 1 point
     {
         if(GameOverTime == false)
         {

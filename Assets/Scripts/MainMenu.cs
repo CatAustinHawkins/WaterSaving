@@ -3,14 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    public void Update()
-    {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
+    //Used on the Main Menu
 
     public void StartMinigame1() //CONTROL WATER SUPPLY
     {
