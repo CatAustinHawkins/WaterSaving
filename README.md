@@ -15,3 +15,7 @@ Windows in the house light up and then water automatically gets drawn from the w
 Aim is to manage the supply as long as possible
 
 Run out of water in either the reservoir or tank and the game ends 
+
+
+Gameplay Video:
+https://youtu.be/CeHFcqrNAHE 
