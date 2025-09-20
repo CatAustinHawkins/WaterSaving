@@ -1,10 +1,12 @@
-Two Water Saving Themed minigames for a proof of concept
+**Two Water Saving Themed minigames**
 
-Water Saving Quiz:
+**Water Saving Quiz:**
+
 Multiple Choice Questions
+
 Inputted Answer Questions
 
-Water Supply Management:
+**Water Supply Management:**
 
 Control the flow of water between the reservoir, the water supply tank, and a house
 
@@ -17,5 +19,6 @@ Aim is to manage the supply as long as possible
 Run out of water in either the reservoir or tank and the game ends 
 
 
-Gameplay Video:
-https://youtu.be/CeHFcqrNAHE 
+[**Gameplay Video**](https://youtu.be/CeHFcqrNAHE) 
+
+**Created with Unity, C#, Visual Studio**
